@@ -47,4 +47,9 @@ class Gearman
 		$worker = \Gearman\Worker::forge($callbacks);
 		$worker->work();
 	}
+
+	public function job($name, $workload = null)
+	{
+		\Gearman\Client::forge($name, $workload);
+	}
 }
