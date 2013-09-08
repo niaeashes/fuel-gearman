@@ -6,6 +6,8 @@ Install
 
 	git submodule add git://github.com/niaeashes/fuel-gearman.git fuel/packages/gearman
 
+add `'gearman'` into `always_load.packages`.
+
 Check environment
 ------------
 
@@ -26,15 +28,17 @@ Example
 
 **Worker_Sample on fuel/app/classes/worker/sample.php**
 
-	<?php
-	
-	class Worker_Sample
+```php
+<?php
+
+class Worker_Sample
+{
+	public function work_sample($job)
 	{
-		public function work_sample($job)
-		{
-			Log::info($job->workload());
-		}
+		Log::info($job->workload());
 	}
+}
+```
 
 **Wakeup sample worker**
 
