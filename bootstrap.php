@@ -9,7 +9,7 @@
  */
 
 Autoloader::add_classes(array(
-	'Gearman\\Worker' => __DIR__.'classes/worker.php'
+	'Gearman\\Worker' => __DIR__.'/classes/worker.php'
 ));
 
 
