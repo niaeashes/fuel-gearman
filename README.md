@@ -8,18 +8,23 @@ Install
 
 add `'gearman'` into `always_load.packages`.
 
-Check environment
-------------
+### Dependencies
+
+- libgearman http://gearman.org
+- PECL gearman library http://pecl.php.net/package/gearman
+
+### Check environment
 
 	oil r gearman:env
 
-Wakeup a new worker
+Usage
 ------------
+
+### Wakeup a new worker
 
 	oil refine gearman:worker <class_name>
 
-Do a new job
-------------
+### Do a new job
 
 	oil refine gearman:job <function_name> <workload>
 
@@ -47,6 +52,21 @@ class Worker_Sample
 **Do sample job**
 
 	oil refine gearman:job sample 'This is sample job'
+
+or
+
+```php
+<?php
+
+class Controller_Job extends Controller
+{
+	public function action_index()
+	{
+		\Gearman\Client::forge('sample', 'This is sample job');
+	}
+}
+
+```
 
 **result (log file)**
 
